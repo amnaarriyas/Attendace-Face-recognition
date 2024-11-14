@@ -11,7 +11,7 @@ db = client["attendance_system"]  # Database name
 students_collection = db['students']  # Collection name
 professors_collection = db['professors']  # Collection name
 
-# Route for student registration
+# Route for registration
 @app.route('/register', methods=['POST'])
 def register():
     username = request.json.get('username')
@@ -40,7 +40,7 @@ def register():
     session['username'] = username
     session['role'] = role  # Store the role in the session
     return jsonify({"message": f"{role.capitalize()} registered successfully"}), 201
-
+# route for login
 @app.route('/login', methods=['POST'])
 def login():
     username = request.json.get('username')
